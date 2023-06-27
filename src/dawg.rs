@@ -44,6 +44,15 @@ impl Dawg {
         }
     }
 
+    pub fn transition_and_count(&self, state: usize, token: usize, length: u64) -> (Option<usize>, u64) {
+        let state_index = NodeIndex::new(state);
+        let (new_state, new_length) = self.dawg.transition_and_count(state_index, token, length);
+        match new_state {
+            Some(q) => (Some(q.index()), new_length),
+            None => (None, new_length),
+        }
+    }
+
     pub fn recompute_lengths(&mut self) {
         self.dawg.recompute_lengths();
     }
@@ -56,4 +65,10 @@ impl Dawg {
         self.dawg.edge_count()
     }
 
+}
+
+impl Dawg {
+    pub fn get_dawg(&self) -> &dawg::Dawg<usize> {
+        &self.dawg
+    }
 }
