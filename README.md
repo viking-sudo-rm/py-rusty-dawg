@@ -1,10 +1,10 @@
 # (Py) Rusty DAWG
 
-A Python wrapper for Rusty DAWG, providing seamless access to fast and memory-efficient DAWG data structures implemented in Rust.
+A Python wrapper for [Rusty DAWG](https://github.com/viking-sudo-rm/rusty-dawg), providing seamless access to fast and memory-efficient DAWG data structures implemented in Rust.
 
 ## Building
 
-First update `rusty-dawg` to the most recent version from the GitHub repo:
+First update Rusty DAWG to the most recent version from the GitHub repo:
 
 ```
 cargo update -p rusty-dawg
