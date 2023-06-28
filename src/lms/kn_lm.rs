@@ -14,15 +14,15 @@ pub struct KNLM {
 impl KNLM {
 
     #[new]
-    pub fn new(name: String, kn_delta: f32, kn_max_n: i64) -> Self {
-        Self {lm: kn_lm::KNLM::new(name, kn_delta, kn_max_n)}
+    pub fn new(name: String, kn_delta: f64, kn_max_n: i64, min_freq: u64) -> Self {
+        Self {lm: kn_lm::KNLM::new(name, kn_delta, kn_max_n, min_freq)}
     }
 
     pub fn reset(&mut self, dawg: &Dawg) {
         self.lm.reset(dawg.get_dawg());
     }
 
-    pub fn get_probability(&self, dawg: &Dawg, label: usize, good_turing: f32) -> f32 {
+    pub fn get_probability(&self, dawg: &Dawg, label: usize, good_turing: f64) -> f64 {
         self.lm.get_probability(dawg.get_dawg(), label, good_turing)
     }
 
