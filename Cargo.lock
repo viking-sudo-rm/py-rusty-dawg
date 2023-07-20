@@ -549,7 +549,7 @@ dependencies = [
 [[package]]
 name = "rusty-dawg"
 version = "0.1.0"
-source = "git+https://github.com/viking-sudo-rm/rusty-dawg#6d70383edb409aba7713a928aff89e8c4998cac8"
+source = "git+https://github.com/viking-sudo-rm/rusty-dawg#72f8a543700e736318156ab80cbeefbdac56fc29"
 dependencies = [
  "bincode",
  "bit-struct",

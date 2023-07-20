@@ -13,7 +13,8 @@ cargo update -p rusty-dawg
 Then build via Maturin:
 
 ```
-maturin build
+maturin build --release
+# python3 -m maturin build --release
 ```
 
 Finally, install the generated wheel via pip in your Python installation:

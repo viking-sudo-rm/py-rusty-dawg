@@ -5,6 +5,7 @@ use bincode::deserialize_from;
 
 use rusty_dawg::dawg;
 use rusty_dawg::graph::indexing::NodeIndex;
+use rusty_dawg::weight::Weight;
 
 #[pyclass]
 pub struct Dawg {
@@ -51,6 +52,18 @@ impl Dawg {
             Some(q) => (Some(q.index()), new_length),
             None => (None, new_length),
         }
+    }
+
+    pub fn get_count(&self, state: usize) -> u64 {
+        let state_index = NodeIndex::new(state);
+        self.dawg.get_weight(state_index).get_count()
+    }
+
+    // Returns (State, TokenId)
+    pub fn get_edges(&self, state: usize) -> Vec<(usize, usize)> {
+        let state_index = NodeIndex::new(state);
+        let graph = self.dawg.get_graph();
+        graph.edges(state_index).map(|edge| (edge.target().index(), *edge.weight())).collect()
     }
 
     pub fn recompute_lengths(&mut self) {
