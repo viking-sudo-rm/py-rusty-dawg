@@ -17,6 +17,12 @@ maturin build --release
 # python3 -m maturin build --release
 ```
 
+To update the Git repo dependencies:
+
+```
+cargo update
+```
+
 Finally, install the generated wheel via pip in your Python installation:
 
 ```
